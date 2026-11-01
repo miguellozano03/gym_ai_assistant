@@ -4,9 +4,9 @@ from decimal import Decimal
 @dataclass
 class Product:
     name: str
-    description: str | None = None
     price: Decimal
     available: bool
+    description: str | None = None
 
     def __post_init__(self):
         if not isinstance(self.name, str) or not self.name.strip():
@@ -21,11 +21,11 @@ class Product:
             raise ValueError("Available must be a boolean")
 
 @dataclass
-class MemberShipPlan:
+class MembershipPlan:
     name: str
-    description: str | None = None
     price: Decimal
     duration_days: int
+    description: str | None = None
 
     def __post_init__(self):
         if not isinstance(self.name, str) or not self.name.strip():

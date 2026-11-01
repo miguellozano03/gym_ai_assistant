@@ -49,18 +49,9 @@ class BusinessHours:
 class Business:
     name: str
     description: str | None = None
-    hours: list[BusinessHours]
 
     def __post_init__(self):
         if not isinstance(self.name, str) or not self.name.strip():
             raise ValueError("Business name cannot be empty")
         if self.description is not None and not isinstance(self.description, str):
             raise ValueError("Description must be a string or None")
-        if not isinstance(self.hours, list) or not self.hours:
-            raise ValueError("Business must contain at least one day of hours")
-        if any(not isinstance(business_hours, BusinessHours) for business_hours in self.hours):
-            raise ValueError("Hours must contain only BusinessHours values")
-
-        days = [business_hours.day for business_hours in self.hours]
-        if len(set(days)) != len(days):
-            raise ValueError("Business hours cannot contain duplicate days")

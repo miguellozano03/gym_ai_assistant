@@ -1,6 +1,6 @@
 import pytest
 from decimal import Decimal
-from app.domain.entities.gym_offerings import Product, MemberShipPlan
+from app.domain.entities.gym_offerings import MembershipPlan, Product
 
 
 def test_create_new_product():
@@ -15,7 +15,7 @@ def test_create_new_product():
 
 
 def test_create_membership_plan():
-    membership_plan = MemberShipPlan(
+    membership_plan = MembershipPlan(
         name="Daily",
         description="Pay once, workout once",
         price=Decimal(4000),
@@ -63,4 +63,4 @@ def test_membership_plan_rejects_invalid_values(field, value):
     data[field] = value
 
     with pytest.raises(ValueError):
-        MemberShipPlan(**data)
+        MembershipPlan(**data)

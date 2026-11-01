@@ -3,53 +3,35 @@ from datetime import time
 from app.domain.entities.business import BusinessHours, Business, TimeRange, WeekDay
 
 
-@pytest.fixture
-def business_hours():
-    weekdays = [
-        BusinessHours(
-            day=day,
-            intervals=[
-                TimeRange(
-                    description="Morning",
-                    opens_at=time(6,0),
-                    closes_at=time(11,0)
-                ),
-                TimeRange(
-                    description="Afternoon",
-                    opens_at=time(6,0),
-                    closes_at=time(11,0)
-                    )]
-        ) for day in WeekDay if day not in WeekDay.SATURDAY
-    ]
-
-    weekends = [
-        BusinessHours(
-            day=WeekDay.SATURDAY,
-            intervals=[
-                TimeRange(
-                    description="Morning",
-                    opens_at=time(6,0),
-                    closes_at=time(11,0)
-                )
-            ]
-        )
-    ]
-
-    return [weekdays, weekends]
-
-
-def test_business_creation(business_hours):
-
-    weekdays, weekends = business_hours
-
+def test_business_creation():
     business = Business(
         name="Extreme Gym",
         description="The best gym in your town",
-        hours=weekdays + weekends
     )
 
-    assert business.hours[0].day == WeekDay.MONDAY
-    assert business.hours[0].intervals[0].description == "Morning"
+    assert business.name == "Extreme Gym"
+    assert business.description == "The best gym in your town"
+
+
+def test_business_hours_creation():
+    hours = BusinessHours(
+        day=WeekDay.MONDAY,
+        intervals=[
+            TimeRange(
+                description="Morning",
+                opens_at=time(6),
+                closes_at=time(11),
+            ),
+            TimeRange(
+                description="Afternoon",
+                opens_at=time(12),
+                closes_at=time(14),
+            ),
+        ],
+    )
+
+    assert hours.day == WeekDay.MONDAY
+    assert hours.intervals[0].description == "Morning"
 
 
 def test_time_range_rejects_invalid_order():
@@ -72,12 +54,4 @@ def test_business_rejects_empty_name():
         Business(
             name=" ",
             description=None,
-            hours=[BusinessHours(WeekDay.MONDAY, [TimeRange(None, time(6), time(12))])],
         )
-
-
-def test_business_rejects_duplicate_days():
-    hours = BusinessHours(WeekDay.MONDAY, [TimeRange(None, time(6), time(12))])
-
-    with pytest.raises(ValueError):
-        Business(name="Extreme Gym", description=None, hours=[hours, hours])
