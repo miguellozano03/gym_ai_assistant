@@ -48,7 +48,7 @@ class BusinessHours:
 @dataclass
 class Business:
     name: str
-    description: str | None
+    description: str | None = None
     hours: list[BusinessHours]
 
     def __post_init__(self):

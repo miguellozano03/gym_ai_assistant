@@ -4,7 +4,7 @@ from decimal import Decimal
 @dataclass
 class Product:
     name: str
-    description: str | None
+    description: str | None = None
     price: Decimal
     available: bool
 
@@ -23,7 +23,7 @@ class Product:
 @dataclass
 class MemberShipPlan:
     name: str
-    description: str | None
+    description: str | None = None
     price: Decimal
     duration_days: int
 
