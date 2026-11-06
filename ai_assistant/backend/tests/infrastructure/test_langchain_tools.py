@@ -13,5 +13,10 @@ def test_create_gym_tools_returns_repository_backed_tools():
         "get_products",
         "get_membership_plans",
     }
-    assert tools_by_name["get_business_information"].invoke({})["name"] == "Extreme Gym"
-    assert tools_by_name["get_products"].invoke({})
+    business_result = tools_by_name["get_business_information"].invoke({})
+    assert isinstance(business_result, str)
+    assert "Extreme Gym" in business_result
+
+    products_result = tools_by_name["get_products"].invoke({})
+    assert isinstance(products_result, str)
+    assert "Agua mineral" in products_result

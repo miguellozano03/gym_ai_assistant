@@ -10,6 +10,7 @@ def test_settings_work(tmp_path):
         CHAT_MODEL=test-model
         CHAT_API_BASE_URL=https://test_api_url/v1
         CHAT_TEMPERATURE=0
+        CHAT_PROVIDER=bharatcode
         """
     )
 
@@ -18,5 +19,5 @@ def test_settings_work(tmp_path):
     assert settings.chat_api_key == "test-api-key"
     assert settings.chat_model == "test-model"
     assert settings.chat_api_base_url == "https://test_api_url/v1"
-    assert settings.chat_temperature == "0"
-
+    assert settings.chat_temperature == 0.0
+    assert settings.chat_provider == "bharatcode"
