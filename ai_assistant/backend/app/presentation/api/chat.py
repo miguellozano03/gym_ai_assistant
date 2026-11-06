@@ -18,10 +18,8 @@ router = APIRouter(prefix="/chat", tags=["chat"])
 
 
 @router.post("", response_model=ChatResponse)
-def chat(
-    request: ChatRequest,
-    agent: GymAssistant = Depends(get_gym_assistant_agent),
-) -> ChatResponse:
+def chat( request: ChatRequest, agent: GymAssistant = Depends(get_gym_assistant_agent)) -> ChatResponse:
+    
     try:
         reply = agent.run(request.message)
     except ValueError as error:
