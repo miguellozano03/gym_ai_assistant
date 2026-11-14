@@ -11,6 +11,11 @@ def test_settings_work(tmp_path):
         CHAT_API_BASE_URL=https://test_api_url/v1
         CHAT_TEMPERATURE=0
         CHAT_PROVIDER=bharatcode
+        DB_USERNAME=postgres
+        DB_PASSWORD=postgres
+        DB_HOST=localhost
+        DB_PORT=5432
+        DATABASE_NAME=test_db
         """
     )
 

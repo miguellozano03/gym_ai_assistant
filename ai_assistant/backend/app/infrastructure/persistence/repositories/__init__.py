@@ -1,11 +1,13 @@
-from .in_memory_business_repository import InMemoryBusinessRepository
-from .in_memory_gym_info_repository import InMemoryBusinessPolicyRepository, InMemoryTrainerRepository
-from .in_memory_gym_offerings_repository import InMemoryMembershipPlanRepository, InMemoryProductRepository
+from .business_policy_repo import BusinessPolicyRepository
+from .business_repo import BusinessRepository
+from .membership_plan_repo import MembershipPlanRepository
+from .product_repo import ProductRepository
+from .trainer_repo import TrainerRepository
 
 __all__ = [
-    "InMemoryBusinessRepository",
-    "InMemoryBusinessPolicyRepository",
-    "InMemoryTrainerRepository",
-    "InMemoryMembershipPlanRepository",
-    "InMemoryProductRepository"
+    "BusinessPolicyRepository",
+    "BusinessRepository",
+    "MembershipPlanRepository",
+    "ProductRepository",
+    "TrainerRepository",
 ]

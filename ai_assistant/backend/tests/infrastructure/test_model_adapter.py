@@ -8,11 +8,16 @@ def test_create_bharatcode_chat_model(tmp_path):
     env_file = tmp_path / "bharatcode.env"
     env_file.write_text(
         """
-CHAT_PROVIDER=bharatcode
-CHAT_API_KEY=bc_test_key
-CHAT_MODEL=qwen-3.8-27b
-CHAT_API_BASE_URL=https://bharatcode.ai/api/model/v1
-CHAT_TEMPERATURE=0
+        CHAT_PROVIDER=bharatcode
+        CHAT_API_KEY=bc_test_key
+        CHAT_MODEL=qwen-3.8-27b
+        CHAT_API_BASE_URL=https://bharatcode.ai/api/model/v1
+        CHAT_TEMPERATURE=0
+        DB_USERNAME=postgres
+        DB_PASSWORD=postgres
+        DB_HOST=localhost
+        DB_PORT=5432
+        DATABASE_NAME=test_db
         """.strip()
     )
 
@@ -27,11 +32,16 @@ def test_rejects_invalid_bharatcode_base_url(tmp_path):
     env_file = tmp_path / "bharatcode.env"
     env_file.write_text(
         """
-CHAT_PROVIDER=bharatcode
-CHAT_API_KEY=bc_test_key
-CHAT_MODEL=qwen-3.8-27b
-CHAT_API_BASE_URL=https://bharatcode.ai/api/model
-CHAT_TEMPERATURE=0
+        CHAT_PROVIDER=bharatcode
+        CHAT_API_KEY=bc_test_key
+        CHAT_MODEL=qwen-3.8-27b
+        CHAT_API_BASE_URL=https://bharatcode.ai/api/model
+        CHAT_TEMPERATURE=0
+        DB_USERNAME=postgres
+        DB_PASSWORD=postgres
+        DB_HOST=localhost
+        DB_PORT=5432
+        DATABASE_NAME=test_db
         """.strip()
     )
 

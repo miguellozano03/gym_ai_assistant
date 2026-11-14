@@ -25,3 +25,6 @@ build/
 htmlcov/
 .mypy_cache/
 .ruff_cache/
+
+# For practicing.
+sql/

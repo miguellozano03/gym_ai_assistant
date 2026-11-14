@@ -1,5 +1,8 @@
 
+from collections.abc import Callable
+
 from langchain_core.tools import tool
+from sqlalchemy.orm import Session
 
 from app.application.use_cases import (
     GetBusinessHours,
@@ -9,21 +12,25 @@ from app.application.use_cases import (
     GetProducts,
     GetTrainersList
 )
-
+from app.infrastructure.persistence.database import SessionLocal
 from app.infrastructure.persistence.repositories import (
-    InMemoryBusinessRepository,
-    InMemoryBusinessPolicyRepository,
-    InMemoryTrainerRepository,
-    InMemoryMembershipPlanRepository,
-    InMemoryProductRepository,
+    BusinessPolicyRepository,
+    BusinessRepository,
+    MembershipPlanRepository,
+    ProductRepository,
+    TrainerRepository,
 )
 
-def create_gym_tools():
-    business_repository = InMemoryBusinessRepository()
-    policy_repository = InMemoryBusinessPolicyRepository()
-    trainer_repository = InMemoryTrainerRepository()
-    product_repository = InMemoryProductRepository()
-    membership_repository = InMemoryMembershipPlanRepository()
+
+def create_gym_tools(
+    session_factory: Callable[[], Session] | None = None,
+):
+    session_factory = session_factory or SessionLocal
+    business_repository = BusinessRepository(session_factory)
+    policy_repository = BusinessPolicyRepository(session_factory)
+    trainer_repository = TrainerRepository(session_factory)
+    product_repository = ProductRepository(session_factory)
+    membership_repository = MembershipPlanRepository(session_factory)
 
     @tool
     def get_business_information() -> str:

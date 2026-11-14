@@ -4,6 +4,15 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
+
+    # Database Settings
+    db_username: str
+    db_password: str
+    db_host: str
+    db_port: int
+    database_name: str
+
+    # LLM Settings
     chat_api_key: str
     chat_model: str
     chat_api_base_url: str
