@@ -13,12 +13,14 @@ class InMemoryBusinessRepository(BusinessRepository):
 
     def __init__(self):
         self.business = Business(
+            id=1,
             name="Extreme Gym",
             description="Gimnasio especializado en musculación y acondicionamiento físico.",
         )
 
         self.business_hours = [
             BusinessHours(
+                id=1,
                 day=WeekDay.MONDAY,
                 intervals=[
                     TimeRange("Morning", time(6, 0), time(11, 0)),
@@ -26,6 +28,7 @@ class InMemoryBusinessRepository(BusinessRepository):
                 ],
             ),
             BusinessHours(
+                id=2,
                 day=WeekDay.TUESDAY,
                 intervals=[
                     TimeRange("Morning", time(6, 0), time(11, 0)),
@@ -33,6 +36,7 @@ class InMemoryBusinessRepository(BusinessRepository):
                 ],
             ),
             BusinessHours(
+                id=3,
                 day=WeekDay.WEDNESDAY,
                 intervals=[
                     TimeRange("Morning", time(6, 0), time(11, 0)),
@@ -40,6 +44,7 @@ class InMemoryBusinessRepository(BusinessRepository):
                 ],
             ),
             BusinessHours(
+                id=4,
                 day=WeekDay.THURSDAY,
                 intervals=[
                     TimeRange("Morning", time(6, 0), time(11, 0)),
@@ -47,6 +52,7 @@ class InMemoryBusinessRepository(BusinessRepository):
                 ],
             ),
             BusinessHours(
+                id=5,
                 day=WeekDay.FRIDAY,
                 intervals=[
                     TimeRange("Morning", time(6, 0), time(11, 0)),
@@ -54,6 +60,7 @@ class InMemoryBusinessRepository(BusinessRepository):
                 ],
             ),
             BusinessHours(
+                id=6,
                 day=WeekDay.SATURDAY,
                 intervals=[
                     TimeRange("Morning", time(7, 0), time(12, 0)),

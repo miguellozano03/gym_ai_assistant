@@ -7,6 +7,7 @@ class Trainer:
     description: str | None = None
     specialties: list[str] | None = None
     available: bool = True
+    id: int | None = None
 
     def __post_init__(self):
         if not isinstance(self.name, str) or not self.name.strip():
@@ -28,6 +29,7 @@ class BusinessPolicy:
     title: str
     description: str
     active: bool = True
+    id: int | None = None
 
     def __post_init__(self):
         if not isinstance(self.title, str) or not self.title.strip():

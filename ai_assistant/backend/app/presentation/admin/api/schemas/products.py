@@ -4,6 +4,7 @@ from pydantic import BaseModel, field_validator
 
 
 class ProductCreateSchema(BaseModel):
+    id: int | None = None
     name: str
     price: Decimal
     available: bool
@@ -11,6 +12,7 @@ class ProductCreateSchema(BaseModel):
 
 
 class ProductUpdateSchema(BaseModel):
+    id: int | None = None
     name: str | None = None
     price: Decimal | None = None
     available: bool | None = None

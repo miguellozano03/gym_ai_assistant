@@ -7,6 +7,7 @@ class Product:
     price: Decimal
     available: bool
     description: str | None = None
+    id: int | None = None
 
     def __post_init__(self):
         if not isinstance(self.name, str) or not self.name.strip():
@@ -26,6 +27,7 @@ class MembershipPlan:
     price: Decimal
     duration_days: int
     description: str | None = None
+    id: int | None = None
 
     def __post_init__(self):
         if not isinstance(self.name, str) or not self.name.strip():

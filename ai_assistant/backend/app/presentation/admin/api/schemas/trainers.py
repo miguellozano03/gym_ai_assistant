@@ -2,6 +2,7 @@ from pydantic import BaseModel, field_validator
 
 
 class TrainerCreateSchema(BaseModel):
+    id: int | None = None
     name: str
     description: str | None = None
     specialties: list[str] | None = None
@@ -9,6 +10,7 @@ class TrainerCreateSchema(BaseModel):
 
 
 class TrainerUpdateSchema(BaseModel):
+    id: int | None = None
     name: str | None = None
     description: str | None = None
     specialties: list[str] | None = None

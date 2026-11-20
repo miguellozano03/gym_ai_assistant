@@ -109,6 +109,7 @@ class BusinessPolicyRepository(BusinessPolicyRepositoryInterface):
     @staticmethod
     def _to_entity(model: BusinessPolicyModel) -> BusinessPolicy:
         return BusinessPolicy(
+            id=model.id,
             title=model.title,
             description=model.description,
             active=model.active,

@@ -112,6 +112,7 @@ class MembershipPlanRepository(MembershipPlanRepositoryInterface):
     @staticmethod
     def _to_entity(model: MembershipPlanModel) -> MembershipPlan:
         return MembershipPlan(
+            id=model.id,
             name=model.name,
             price=model.price,
             duration_days=model.duration_days,

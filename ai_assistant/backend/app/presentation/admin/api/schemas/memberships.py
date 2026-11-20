@@ -4,6 +4,7 @@ from pydantic import BaseModel, field_validator
 
 
 class MembershipPlanCreateSchema(BaseModel):
+    id: int | None = None
     name: str
     price: Decimal
     duration_days: int
@@ -11,6 +12,7 @@ class MembershipPlanCreateSchema(BaseModel):
 
 
 class MembershipPlanUpdateSchema(BaseModel):
+    id: int | None = None
     name: str | None = None
     price: Decimal | None = None
     duration_days: int | None = None

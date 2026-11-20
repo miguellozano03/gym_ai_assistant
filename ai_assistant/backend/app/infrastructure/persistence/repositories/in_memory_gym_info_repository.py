@@ -10,10 +10,12 @@ class InMemoryBusinessPolicyRepository(BusinessPolicyRepository):
     def __init__(self):
         self.gym_policies = [
             BusinessPolicy(
+                id=1,
                 title="Uso de vestuarios",
                 description="Mantener el vestuario limpio y utilizar lockers durante la permanencia en el gimnasio.",
             ),
             BusinessPolicy(
+                id=2,
                 title="Higiene y seguridad",
                 description="Limpiar los equipos despues de usarlos y guardar las pesas en su lugar correspondiente.",
             ),
@@ -28,12 +30,14 @@ class InMemoryTrainerRepository(TrainerRepository):
     def __init__(self):
         self.trainers = [
             Trainer(
+                id=1,
                 name="Carlos Ramirez",
                 description="Entrenador especializado en musculacion y fuerza.",
                 specialties=["Musculacion", "Fuerza"],
                 available=True,
             ),
             Trainer(
+                id=2,
                 name="Laura Gomez",
                 description="Entrenadora especializada en acondicionamiento fisico.",
                 specialties=["Acondicionamiento fisico", "Movilidad"],

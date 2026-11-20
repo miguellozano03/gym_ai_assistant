@@ -190,14 +190,20 @@ class BusinessRepository(BusinessRepositoryInterface):
 
     @staticmethod
     def _to_business_entity(model: BusinessModel) -> BusinessEntity:
-        return BusinessEntity(name=model.name, description=model.description)
+        return BusinessEntity(
+            id=model.id,
+            name=model.name,
+            description=model.description,
+        )
 
     @staticmethod
     def _to_business_hours(schedule: BusinessSchedule) -> BusinessHours:
         return BusinessHours(
+            id=schedule.id,
             day=schedule.day,
             intervals=[
                 TimeRange(
+                    id=interval.id,
                     description=interval.description,
                     opens_at=interval.opens_at,
                     closes_at=interval.closes_at,

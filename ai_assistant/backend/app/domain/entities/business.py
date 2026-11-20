@@ -16,6 +16,7 @@ class TimeRange:
     description: str | None
     opens_at: time
     closes_at: time
+    id: int | None = None
 
     def __post_init__(self):
         if not isinstance(self.opens_at, time):
@@ -31,6 +32,7 @@ class TimeRange:
 class BusinessHours:
     day: WeekDay
     intervals: list[TimeRange]
+    id: int | None = None
 
     def __post_init__(self):
         if not isinstance(self.day, WeekDay):
@@ -49,6 +51,7 @@ class BusinessHours:
 class Business:
     name: str
     description: str | None = None
+    id: int | None = None
 
     def __post_init__(self):
         if not isinstance(self.name, str) or not self.name.strip():

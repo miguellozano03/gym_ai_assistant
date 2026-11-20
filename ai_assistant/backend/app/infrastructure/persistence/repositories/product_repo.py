@@ -108,6 +108,7 @@ class ProductRepository(ProductRepositoryInterface):
     @staticmethod
     def _to_entity(model: ProductModel) -> Product:
         return Product(
+            id=model.id,
             name=model.name,
             price=model.price,
             available=model.available,

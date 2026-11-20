@@ -114,6 +114,7 @@ class TrainerRepository(TrainerRepositoryInterface):
     @staticmethod
     def _to_entity(model: TrainerModel) -> Trainer:
         return Trainer(
+            id=model.id,
             name=model.name,
             description=model.description,
             specialties=model.specialties.copy()

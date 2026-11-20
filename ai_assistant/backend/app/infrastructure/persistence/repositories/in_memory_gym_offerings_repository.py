@@ -12,12 +12,14 @@ class InMemoryProductRepository(ProductRepository):
     def __init__(self):
         self.products = [
             Product(
+                id=1,
                 name="Agua mineral",
                 price=Decimal("1500"),
                 available=True,
                 description="Botella de agua mineral de 500 ml.",
             ),
             Product(
+                id=2,
                 name="Proteina en polvo",
                 price=Decimal("25000"),
                 available=True,
@@ -34,12 +36,14 @@ class InMemoryMembershipPlanRepository(MembershipPlanRepository):
     def __init__(self):
         self.membership_plans = [
             MembershipPlan(
+                id=1,
                 name="Diario",
                 price=Decimal("3000"),
                 duration_days=1,
                 description="Acceso al gimnasio por un dia.",
             ),
             MembershipPlan(
+                id=2,
                 name="Mensual",
                 price=Decimal("45000"),
                 duration_days=30,
