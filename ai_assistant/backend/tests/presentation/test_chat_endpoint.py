@@ -1,7 +1,7 @@
 from fastapi.testclient import TestClient
 
 from app.infrastructure.ai.agent import GymAssistantAgent
-from app.presentation.api.dependencies import (
+from ai_assistant.backend.app.presentation.ai.api.dependencies import (
     create_gym_assistant_agent,
     get_gym_assistant_agent,
 )

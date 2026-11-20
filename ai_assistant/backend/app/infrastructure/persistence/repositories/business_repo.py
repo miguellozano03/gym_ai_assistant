@@ -55,14 +55,17 @@ class BusinessRepository(BusinessRepositoryInterface):
             model = session.get(BusinessModel, business_id)
             return self._to_business_entity(model) if model is not None else None
 
-    def update_business(self, business_id: int, business: BusinessEntity) -> bool:
+    def update_business(self, business_id: int, data: dict) -> bool:
+
         with self._session_factory() as session:
             model = session.get(BusinessModel, business_id)
+
             if model is None:
                 return False
 
-            model.name = business.name
-            model.description = business.description
+            for key, value in data.items():
+                setattr(model, key, value)
+
             session.commit()
             return True
 

@@ -3,8 +3,8 @@ from typing import Protocol
 
 from fastapi import APIRouter, Depends, HTTPException, status
 
-from app.presentation.api.dependencies import get_gym_assistant_agent
-from app.presentation.api.schemas import ChatRequest, ChatResponse
+from app.presentation.ai.api.dependencies import get_gym_assistant_agent
+from app.presentation.ai.api.schemas import ChatRequest, ChatResponse
 
 
 logger = logging.getLogger(__name__)

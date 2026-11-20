@@ -1,15 +1,19 @@
 from .business_info import (
-    CreateBusiness,
     CreateBusinessHours,
-    DeleteBusiness,
     DeleteBusinessHours,
-    GetBusinessById,
     GetBusinessHours,
     GetBusinessHoursById,
     GetBusinessInformation,
-    UpdateBusiness,
     UpdateBusinessHours,
 )
+
+from .business import (
+    CreateBusiness,
+    DeleteBusiness,
+    GetBusinessById,
+    UpdateBusiness,
+)
+
 from .gym_policies import (
     CreateGymPolicy,
     DeleteGymPolicy,

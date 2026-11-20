@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 
-from app.presentation.api.chat import router as chat_router
-
+from app.presentation.ai.api.chat import router as chat_router
+from app.presentation.admin.api.routers import admin_router
 
 app = FastAPI(
     title="Gym AI Assistant",
@@ -9,3 +9,4 @@ app = FastAPI(
 )
 
 app.include_router(chat_router)
+app.include_router(admin_router)
